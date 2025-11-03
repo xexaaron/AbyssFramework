@@ -98,10 +98,10 @@ extern "C" __declspec(dllimport) void __stdcall DebugBreak();
 #define log_warn(fmt, ...)  ::aby::log::Logger::get().warn(std::format(fmt __VA_OPT__(,) __VA_ARGS__ ))
 #define log_err(fmt, ...)   ::aby::log::Logger::get().error(std::format(fmt __VA_OPT__(,) __VA_ARGS__ ))
 #define log_dbg(fmt, ...)   ABY_IF_DBG(::aby::log::Logger::get().debug(std::format(fmt __VA_OPT__(,) __VA_ARGS__ )), )
-#define log_assert(condition, fmt, ...)                                                                                                          \
-    ABY_IF_DBG(do {                                                                                                                              \
-        if (!(condition)) {                                                                                                                      \
-            ::aby::log::Logger::get().assertion(ABY_SOURCE_FILE, __LINE__, ABY_FUNC_SIG, #condition, std::format(fmt __VA_OPT__(,) __VA_ARGS__)) \
-            ABY_DBG_BREAK();                                                                                                                     \
-        }                                                                                                                                        \
+#define log_assert(condition, fmt, ...)                                                                                                           \
+    ABY_IF_DBG(do {                                                                                                                               \
+        if (!(condition)) {                                                                                                                       \
+            ::aby::log::Logger::get().assertion(ABY_SOURCE_FILE, __LINE__, ABY_FUNC_SIG, #condition, std::format(fmt __VA_OPT__(,) __VA_ARGS__)); \
+            ABY_DBG_BREAK();                                                                                                                      \
+        }                                                                                                                                         \
     } while(0), condition;)
