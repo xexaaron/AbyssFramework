@@ -66,7 +66,7 @@ namespace aby::log {
         void warn(const std::string& msg);
         void debug(const std::string& msg);
         void error(const std::string& msg);
-        void assertion(const char* file, int line, const char* func, const char* expr, const std::string& msg);
+        void assertion(std::string_view file, int line, const char* func, const char* expr, const std::string& msg);
     private:
         auto format(ELevel level, const std::string& msg) -> std::string;
         void write_files(const std::string& formatted_msg);

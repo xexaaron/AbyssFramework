@@ -95,7 +95,7 @@ namespace aby::log {
         write(ELevel::ERROR, msg);
     }
 
-    void Logger::assertion(const char* file, int line, const char* func, const char* expr, const std::string& msg) {
+    void Logger::assertion(std::string_view file, int line, const char* func, const char* expr, const std::string& msg) {
         write(ELevel::ASSERT, std::format("File   {}:{}", file, line));
         write(ELevel::ASSERT, std::format("Func:  {}", func));
         write(ELevel::ASSERT, std::format("Expr:  {}", expr));
